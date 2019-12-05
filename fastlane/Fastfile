@@ -1,0 +1,23 @@
+
+default_platform(:ios)
+platform :ios do
+  desc "fir archive"
+  lane :fir do
+  get_provisioning_profile(
+    adhoc: true,
+    force: true,
+    app_identifier: "Zsy.TravisTest"
+    # filename: "myFile.mobileprovision"
+  )
+    gym(clean:true, #打包前clean项目
+    	output_directory: "./firim",#ipa的存放目录
+	scheme: "TravisTest",
+	xcodeproj: "TravisTest.xcodeproj",
+        # workspace: "RxswiftStudy.xcworkspace",
+	export_method: "ad-hoc"
+        )
+    pgyer(api_key: "92c0423f53102ddf1f06a92bd0f2fb86", user_key: "4ae6cbc1ef990ff47453be759d93d306",password: "123456", install_type: "2")
+
+    # firim(firim_api_token:"392bc7f0f92622ec086cb47be760b054")
+  end
+end
