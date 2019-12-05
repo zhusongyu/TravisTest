@@ -24,12 +24,6 @@ platform :ios do
 
   desc "fir archive"
   lane :fir do
-    get_provisioning_profile(
-      adhoc: true,
-      force: true,
-      app_identifier: "com.zsy.travistest"
-      # filename: "myFile.mobileprovision"
-    )
     gym(clean:true, #打包前clean项目
     	# output_directory: "./firim",#ipa的存放目录
 	scheme: "TravisTest",
