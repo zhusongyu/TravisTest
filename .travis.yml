@@ -1,5 +1,5 @@
 language: swift
 xcode_project: TravisTest.xcodeproj # path to your xcodeproj folder
 xcode_scheme: TravisTestTests
-xcode_destination: platform=iOS Simulator,OS=13.0,name=iPad Pro (9.7-inch)
+xcode_destination: platform=iOS Simulator,OS=11.0.1,name=iPhone 6
 
