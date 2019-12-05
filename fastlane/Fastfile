@@ -1,6 +1,27 @@
 
 default_platform(:ios)
 platform :ios do
+  keychain_name = "ios-build.keychain"
+  keychain_password = ENV["KEY_PASSWORD"]
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "300"
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_RETRIES"] = "10"
+
+  create_keychain(
+    name: keychain_name,
+    password: keychain_password,
+    default_keychain: true,
+    unlock: true,
+    timeout: 3600,
+    add_to_search_list: true
+  )
+
+  import_certificate(
+    certificate_path: ".travis/zsy-dis.p12",
+    certificate_password: ENV["KEY_PASSWORD"],
+    keychain_name: keychain_name,
+    keychain_password: keychain_password
+  )
+
   desc "fir archive"
   lane :fir do
     get_provisioning_profile(
