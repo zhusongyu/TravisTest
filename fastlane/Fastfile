@@ -24,6 +24,23 @@ platform :ios do
 
   desc "fir archive"
   lane :fir do
+    xcode_select("/Applications/Xcode.app")
+    app_identifier="com.zsy.travistest"
+    update_app_identifier(
+      xcodeproj: "TravisTest.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      plist_path: "TravisTest/Info.plist", # Path to info plist file, relative to xcodeproj
+      app_identifier: "com.zsy.travistest" # The App Identifier
+    )
+    disable_automatic_code_signing(
+      path: "TravisTest.xcodeproj"
+    )
+    update_project_provisioning(
+      xcodeproj: "TravisTest.xcodeproj",
+      profile: ".travis/comzsytravistest_AdHoc.mobileprovision", # optional if you use sigh
+      target_filter: "TravisTest", # matches name or type of a target
+      build_configuration: "Release",
+      code_signing_identity: "iPhone Distribution" # optionally specify the codesigning identity
+    )
     gym(clean:true, #打包前clean项目
     	# output_directory: "./firim",#ipa的存放目录
 	scheme: "TravisTest",
