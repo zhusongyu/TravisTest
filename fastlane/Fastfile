@@ -24,7 +24,6 @@ platform :ios do
 
   desc "fir archive"
   lane :fir do
-    xcode_select("/Applications/Xcode.app")
     app_identifier="com.zsy.travistest"
     disable_automatic_code_signing(
       path: "TravisTest.xcodeproj"
