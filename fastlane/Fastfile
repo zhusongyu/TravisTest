@@ -26,11 +26,6 @@ platform :ios do
   lane :fir do
     xcode_select("/Applications/Xcode.app")
     app_identifier="com.zsy.travistest"
-    update_app_identifier(
-      xcodeproj: "TravisTest.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "TravisTest/Info.plist", # Path to info plist file, relative to xcodeproj
-      app_identifier: "com.zsy.travistest" # The App Identifier
-    )
     disable_automatic_code_signing(
       path: "TravisTest.xcodeproj"
     )
