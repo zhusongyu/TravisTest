@@ -1,4 +1,11 @@
 language: swift
-xcode_project: TravisTest.xcodeproj # path to your xcodeproj folder
+xcode_project: TravisTest.xcodeproj
+before_install:
+- mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+- cp .travis/comzsytravistest_AdHoc.mobileprovision ~/Library/MobileDevice/Provisioning\
+  Profiles/
 script:
 - ".travis/build.sh"
+env:
+  global:
+    secure: D+xnUpxwFrq+KUD2/IQYHi7AbbCcRwhuXrrHjpy5n/i6UWgs0B7sy8ksB6cbVPLNDrPg+mXEdJy1vdz/ec0mq4dJDY9RpYxdZrhbZ4DLMm0DMhOsTftag5C6/3fkqYGNOvPslEpPeEe1r8WNpdkLfe98oEf4UQQgMAvv8RYkqs7n9mx5jr/fb6UBVddg+woJQ+vxu9fz6gb7OD1oYSt6g2XQSkUt76sslQ9dSDVxR6kqSzQBP6W2VIpXPE7wdfFX1n/n1JiUfMJtdTuUTjN/g9lfzUdVB4G+0/vCVGSrPb2DtiE7q2jlcs6l6Z9Mod8JLxXeyoCYQW0EIk31aUDPVSa7YJ0uw1jb0TTnsrJ5Ifh+Kq29OpPEqWchbP0/04/Yj3/RfwBFovcd0F0egltNGxPfqEuhw8PzVPwNZ48Z21em3i1gJSF5dgwu0NNIovvqh3u23jKKf7wcru7eCG2aYT3I8CtSFa70j0blF0tzMQmh2KArntHZa9g5VeBteQpTMgJZLQ04j4+00VspjyVtevi33KRx0SjnqYyIqTAXke6+BmNZhmGUI32EkwWyNYmafT4SIR28/2pJ8Efc7WmcqaqEX2HKfI5GEgUQflciD98X4dAM4FCGeCBu9RkcNtRqtALZAvSxGT45tjXp4dUZdS0qJenLKB0QmWLrwTZpANg=
