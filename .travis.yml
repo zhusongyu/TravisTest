@@ -1,14 +1,5 @@
 language: swift
-osx_image: xcode11
-#cache: cocoapods
-
-#before_install:
-#- bundle install
-#- bundle exec pod repo update
-#- bundle exec pod install
-#- instruments -s devices
-
-#script:
-#- set -o pipefail && xcodebuild -workspace RxswiftStudy.xcworkspace -scheme RxswiftStudy -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=13.0' test | xcpretty
-#- pod lib lint --allow-warnings
+xcode_project: TravisTest.xcodeproj # path to your xcodeproj folder
+xcode_scheme: TravisTestTests
+xcode_destination: platform=iOS Simulator,OS=13.0,name=iPad Pro (9.7-inch)
 
