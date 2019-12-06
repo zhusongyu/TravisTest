@@ -1,11 +1,31 @@
-language: swift
-xcode_project: TravisTest.xcodeproj
+language: objective-c
+osx_image: xcode10.1
 before_install:
-- mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-- cp .travis/comzsytravistest_AdHoc.mobileprovision ~/Library/MobileDevice/Provisioning\
-  Profiles/
+- openssl aes-256-cbc -K $encrypted_038e56de2037_key -iv $encrypted_038e56de2037_iv
+  -in certificates.tar.enc -out certificates.tar -d
+- cd $TRAVIS_BUILD_DIR
+- wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
+  -O pgyer_upload.s
+- tar xvf certificates.tar -C ./travis/certificates
+- chmod +x pgyer_upload.sh
+- chmod +x travis/scripts/add-key.sh
+- chmod +x travis/scripts/build.sh
+- chmod +x travis/scripts/upload.sh
+- chmod +x travis/scripts/remove-key.sh
+
+before_script:
+- "./travis/scripts/add-key.sh"
 script:
-- ".travis/build.sh"
+- "./travis/scripts/build.sh"
+after_success:
+- "./travis/scripts/upload.sh"
+after_script:
+- "./travis/scripts/remove-key.sh"
+
 env:
   global:
-    secure: D+xnUpxwFrq+KUD2/IQYHi7AbbCcRwhuXrrHjpy5n/i6UWgs0B7sy8ksB6cbVPLNDrPg+mXEdJy1vdz/ec0mq4dJDY9RpYxdZrhbZ4DLMm0DMhOsTftag5C6/3fkqYGNOvPslEpPeEe1r8WNpdkLfe98oEf4UQQgMAvv8RYkqs7n9mx5jr/fb6UBVddg+woJQ+vxu9fz6gb7OD1oYSt6g2XQSkUt76sslQ9dSDVxR6kqSzQBP6W2VIpXPE7wdfFX1n/n1JiUfMJtdTuUTjN/g9lfzUdVB4G+0/vCVGSrPb2DtiE7q2jlcs6l6Z9Mod8JLxXeyoCYQW0EIk31aUDPVSa7YJ0uw1jb0TTnsrJ5Ifh+Kq29OpPEqWchbP0/04/Yj3/RfwBFovcd0F0egltNGxPfqEuhw8PzVPwNZ48Z21em3i1gJSF5dgwu0NNIovvqh3u23jKKf7wcru7eCG2aYT3I8CtSFa70j0blF0tzMQmh2KArntHZa9g5VeBteQpTMgJZLQ04j4+00VspjyVtevi33KRx0SjnqYyIqTAXke6+BmNZhmGUI32EkwWyNYmafT4SIR28/2pJ8Efc7WmcqaqEX2HKfI5GEgUQflciD98X4dAM4FCGeCBu9RkcNtRqtALZAvSxGT45tjXp4dUZdS0qJenLKB0QmWLrwTZpANg=
+  - APPNAME=TravisTest
+  - 'DEVELOPER_NAME="iPhone Distribution: songyu zhu (5B974QYD5M)"'
+  - PROFILE_NAME=tra-adhoc
+  - secure: D+xnUpxwFrq+KUD2/IQYHi7AbbCcRwhuXrrHjpy5n/i6UWgs0B7sy8ksB6cbVPLNDrPg+mXEdJy1vdz/ec0mq4dJDY9RpYxdZrhbZ4DLMm0DMhOsTftag5C6/3fkqYGNOvPslEpPeEe1r8WNpdkLfe98oEf4UQQgMAvv8RYkqs7n9mx5jr/fb6UBVddg+woJQ+vxu9fz6gb7OD1oYSt6g2XQSkUt76sslQ9dSDVxR6kqSzQBP6W2VIpXPE7wdfFX1n/n1JiUfMJtdTuUTjN/g9lfzUdVB4G+0/vCVGSrPb2DtiE7q2jlcs6l6Z9Mod8JLxXeyoCYQW0EIk31aUDPVSa7YJ0uw1jb0TTnsrJ5Ifh+Kq29OpPEqWchbP0/04/Yj3/RfwBFovcd0F0egltNGxPfqEuhw8PzVPwNZ48Z21em3i1gJSF5dgwu0NNIovvqh3u23jKKf7wcru7eCG2aYT3I8CtSFa70j0blF0tzMQmh2KArntHZa9g5VeBteQpTMgJZLQ04j4+00VspjyVtevi33KRx0SjnqYyIqTAXke6+BmNZhmGUI32EkwWyNYmafT4SIR28/2pJ8Efc7WmcqaqEX2HKfI5GEgUQflciD98X4dAM4FCGeCBu9RkcNtRqtALZAvSxGT45tjXp4dUZdS0qJenLKB0QmWLrwTZpANg=
+  - secure: kXuplltvcKBbp5y4Lku/qa7h5xyMcB09yUUsRQ07RwSeZECEgmV25nRTDKhWMfKvDY8MjH+K1k0ix/7Uvie4kk+IpEPuUmqqj1EOCyT6yrGpejyYT8S1OtyDwgTcvzuX/+2R1qZVTHvQFlHe5lryzXfqXhhpIXFbAObhuckjlLGTbPydU2L0YjbK5QNICfhYQ964bcmtX5khTcVavPB41k2hb1PRhxykuWGfQm06XNGHGhQX0lzgyn9M34Jk40N2swsE4ZJ2CKLeZvF9Wod5d6xFu31b1rK8D5PimZoMmWZw4y21evNhoWa5FVyJPvxS8P4S+qy00HSpUk/SXAQbhzRBp9LHMqE01hNTkttCCbOOsp+CpWREtOe6wIvLC2edaconvbk7Wd2mAIyTGrlo5ehPZ0UWc7gS2v96Yxav2SXPSj5D6+A+Xw28MLcVEJQof7WKkpDzftIfdpqkLI8+yarH2YxQm8ja+myefKh/Dzd1YcJPJXFLaY4wJoScFKM9qdIhpmrKwkmK8B0DMWH8caeEkpWyhmyv3Lbi5CyDMUQWpoEr68jLeKK3TQHKYaL98ny5Bdo+yWyyGg9nUVu0fzKwZSe5FqaUwgazXZMdqT+T5d9qec3xBZKm32R7sNJO3ni6F3tF8zEhJ/XG/VEFZTjEstuVM9QjgYDsKRUncKU=
