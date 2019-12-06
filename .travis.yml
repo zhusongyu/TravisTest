@@ -7,6 +7,7 @@ before_install:
 - wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
   -O pgyer_upload.s
 - tar xvf certificates.tar -C ./travis/certificates
+
 #- chmod +x pgyer_upload.sh
 - chmod +x travis/scripts/add-key.sh
 - chmod +x travis/scripts/build.sh
