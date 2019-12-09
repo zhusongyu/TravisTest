@@ -1,5 +1,17 @@
-#!/bin/sh
-xcrun xcodebuild -project TravisTest.xcodeproj -scheme TravisTest
+##!/bin/sh
+#xcrun xcodebuild -project TravisTest.xcodeproj -scheme TravisTest
+#
+#xcrun xcodebuild -exportArchive -archivePath TravisTest.xcarchive \
+#  -exportPath ./build -exportOptionsPlist ExportOptions.plist
 
-xcrun xcodebuild -exportArchive -archivePath TravisTest.xcarchive \
-  -exportPath ./build -exportOptionsPlist ExportOptions.plist
+#!/usr/bin/env bash
+
+if [[ $TRAVIS_BRANCH == 'master' ]];then
+    fastlane pgy
+elif [[ $TRAVIS_BRANCH == 'testflight' ]];then
+    fastlane test
+elif [[ $TRAVIS_BRANCH == 'firtest' ]];then
+    fastlane firtest
+else
+    fastlane fir
+fi
