@@ -3,13 +3,16 @@ default_platform(:ios)
 platform :ios do
   desc "pgy archive"
   lane :pgy do
-    gym(scheme: "TravisTest",
+    xcode_select("/Applications/Xcode.app")
+
+    gym(xcargs: "-UseNewBuildSystem=YES",
+        scheme: "TravisTest",
 	project: "TravisTest.xcodeproj",
 	export_method: "ad-hoc",
       	export_options: {
           compileBitcode: false,
           provisioningProfiles: {
-            "com.zsy.travistest" => "tra-adhoc.mobileprovision"
+            "com.zsy.travistest" => "~/Library/MobileDevice/Provisioning\ Profiles/tra-adhoc.mobileprovision"
           }
         }  
      )
