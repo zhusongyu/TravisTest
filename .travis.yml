@@ -19,7 +19,9 @@ before_install:
 before_script:
 - "./travis/scripts/add-key.sh"
 script:
-- "./travis/scripts/build.sh"
+  set -o pipefail
+  xcodebuild test -scheme "TravisTest" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty -c
+#- "./travis/scripts/build.sh"
 #after_success:
 #- "./travis/scripts/upload.sh"
 after_script:
