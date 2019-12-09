@@ -4,7 +4,11 @@ platform :ios do
   desc "pgy archive"
   lane :pgy do
     xcode_select("/Applications/Xcode.app")
-
+    update_app_identifier(
+      xcodeproj: "TravisTest.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      plist_path: "TravisTest/Info.plist", # Path to info plist file, relative to xcodeproj
+      app_identifier: "com.zsy.travistest" # The App Identifier
+    )
     gym(xcargs: "-UseNewBuildSystem=YES",
         scheme: "TravisTest",
 	project: "TravisTest.xcodeproj",
