@@ -15,4 +15,4 @@ platform :ios do
 
     # firim(firim_api_token:"392bc7f0f92622ec086cb47be760b054")
   end
-end/Users/zsy/TravisTest
+end
