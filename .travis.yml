@@ -1,26 +1,26 @@
 language: objective-c
-osx_image: xcode11
-#env:
-#  global:
-#  - APPNAME=TravisTest
-#  - 'DEVELOPER_NAME="iPhone Distribution: songyu zhu (5B974QYD5M)"'
-#  - PROFILE_NAME=tra-adhoc
-#  - secure: ktR7n3iEHcUduHfDCu65xs4o0823zcDo6w2JM1pbC1FDfLG6TkrFjWTkO9ONOtKF2azkWH1QDbfx3H5+imQz6uDCETxf6jV8NbfSIC6LUoaSsWx8Y/3Ld7grSLfJQ5PA6MIYfkV11mqj66smjLa5NFrirIrF8/5Ii9f/YVZhRWM6eIjHKhaLQ19rsBCSFDGS0U0eLRCjujypfwtKjBR9ZPYfU9rbOYFZrR6a2Lvqey88tPc7K8cLSCSMSzkrOy5Y6zmB1QCeme/Ql3/Pvz+4RW5Ev2FGbT1ffgfrzFXuO0jacKvp+IFOQy9sK2Oqg4apUU10o4Yq7FEYDnTP6X3+LCJ8j0Ide1DPnAGV12140YIYVyCS3DxnqkXhEecZPKePSS98kr2svsP4Jw4KfgmsP8WZBjFvSJQiKH3sISQo3cgbdm2Jsq2xVilqd8TYJiUXLA1xQlHfZ5Swbrj/GAR/vgH7o2EknnNg6fYwiSInyRaMIW2aZLBDJd/P5o0mqMaAzdIIwLpxc1EXHXYvIc2vYrZzp+PeGaKBg5PDcIYWxEX9bwYUxAM8laDHOSB3VhUaSUChSYd5mikzMRlEWZaAfc4T/JqXe0p7270WOeVZh7G8aYD+GRyhPRmu2m/xr3/rsHEx//BfnLTPf/kzRXC+c+d3WHt0wirVPik81XhwIpc=
-#before_install:
-#- openssl aes-256-cbc -K $encrypted_038e56de2037_key -iv $encrypted_038e56de2037_iv
-#  -in certificates.tar.enc -out certificates.tar -d
-#- wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
-#  -O pgyer_upload.s
-#- tar xvf certificates.tar -C ./travis/certificates
-#- chmod +x travis/scripts/add-key.sh
-#- chmod +x travis/scripts/build.sh
-#- chmod +x travis/scripts/upload.sh
-#- chmod +x travis/scripts/remove-key.sh
-#before_script:
-#- "./travis/scripts/add-key.sh"
-#script:
-#- "./travis/scripts/build.sh"
-#after_success:
-#- "./travis/scripts/upload.sh"
-#after_script:
-#- "./travis/scripts/remove-key.sh"
+#osx_image: xcode11
+env:
+  global:
+  - APPNAME=TravisTest
+  - 'DEVELOPER_NAME="iPhone Distribution: songyu zhu (5B974QYD5M)"'
+  - PROFILE_NAME=tra-adhoc
+  - secure: ktR7n3iEHcUduHfDCu65xs4o0823zcDo6w2JM1pbC1FDfLG6TkrFjWTkO9ONOtKF2azkWH1QDbfx3H5+imQz6uDCETxf6jV8NbfSIC6LUoaSsWx8Y/3Ld7grSLfJQ5PA6MIYfkV11mqj66smjLa5NFrirIrF8/5Ii9f/YVZhRWM6eIjHKhaLQ19rsBCSFDGS0U0eLRCjujypfwtKjBR9ZPYfU9rbOYFZrR6a2Lvqey88tPc7K8cLSCSMSzkrOy5Y6zmB1QCeme/Ql3/Pvz+4RW5Ev2FGbT1ffgfrzFXuO0jacKvp+IFOQy9sK2Oqg4apUU10o4Yq7FEYDnTP6X3+LCJ8j0Ide1DPnAGV12140YIYVyCS3DxnqkXhEecZPKePSS98kr2svsP4Jw4KfgmsP8WZBjFvSJQiKH3sISQo3cgbdm2Jsq2xVilqd8TYJiUXLA1xQlHfZ5Swbrj/GAR/vgH7o2EknnNg6fYwiSInyRaMIW2aZLBDJd/P5o0mqMaAzdIIwLpxc1EXHXYvIc2vYrZzp+PeGaKBg5PDcIYWxEX9bwYUxAM8laDHOSB3VhUaSUChSYd5mikzMRlEWZaAfc4T/JqXe0p7270WOeVZh7G8aYD+GRyhPRmu2m/xr3/rsHEx//BfnLTPf/kzRXC+c+d3WHt0wirVPik81XhwIpc=
+before_install:
+- openssl aes-256-cbc -K $encrypted_038e56de2037_key -iv $encrypted_038e56de2037_iv
+  -in certificates.tar.enc -out certificates.tar -d
+- wget -c https://raw.githubusercontent.com/Pgyer/TravisFile/master/pgyer_upload.sh
+  -O pgyer_upload.s
+- tar xvf certificates.tar -C ./travis/certificates
+- chmod +x travis/scripts/add-key.sh
+- chmod +x travis/scripts/build.sh
+- chmod +x travis/scripts/upload.sh
+- chmod +x travis/scripts/remove-key.sh
+before_script:
+- "./travis/scripts/add-key.sh"
+script:
+- "./travis/scripts/build.sh"
+after_success:
+- "./travis/scripts/upload.sh"
+after_script:
+- "./travis/scripts/remove-key.sh"
