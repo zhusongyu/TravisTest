@@ -16,11 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios fir
+### ios pgy
 ```
-fastlane ios fir
+fastlane ios pgy
 ```
-fir archive
+pgy archive
 
 ----
 
