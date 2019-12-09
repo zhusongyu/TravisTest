@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='TravisTestUITests.xctest' tests='4' failures='0'>
+  <testsuite name='TravisTestTests.TravisTestTests' tests='2' failures='0'>
+    <testcase classname='TravisTestTests.TravisTestTests' name='testExample' time='0.001'/>
+    <testcase classname='TravisTestTests.TravisTestTests' name='testPerformanceExample' time='0.295'/>
+  </testsuite>
+  <testsuite name='TravisTestUITests.TravisTestUITests' tests='2' failures='0'>
+    <testcase classname='TravisTestUITests.TravisTestUITests' name='testExample' time='2.083'/>
+    <testcase classname='TravisTestUITests.TravisTestUITests' name='testLaunchPerformance' time='18.469'/>
+  </testsuite>
+</testsuites>

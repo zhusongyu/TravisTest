@@ -199,7 +199,6 @@
 					};
 					3BB4C82D2398AC2400A0BBFC = {
 						CreatedOnToolsVersion = 11.0;
-						ProvisioningStyle = Manual;
 						TestTargetID = 3BB4C8172398AC2100A0BBFC;
 					};
 					3BB4C8382398AC2400A0BBFC = {
@@ -502,8 +501,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5B974QYD5M;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TravisTestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -514,7 +515,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Zsy.TravisTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e938eac8-0b1b-40b1-9fdd-bf08538048ad";
-				PROVISIONING_PROFILE_SPECIFIER = "com.zsy.travistest AdHoc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravisTest.app/TravisTest";

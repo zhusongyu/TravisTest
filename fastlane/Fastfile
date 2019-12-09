@@ -8,7 +8,7 @@ platform :ios do
       path: "TravisTest.xcodeproj"
     )
     gym(clean:true, #打包前clean项目
-    	# output_directory: "./firim",#ipa的存放目录
+    	output_directory: "./firim",#ipa的存放目录
 	scheme: "TravisTest",
 	project: "TravisTest.xcodeproj",
         # workspace: "RxswiftStudy.xcworkspace",
