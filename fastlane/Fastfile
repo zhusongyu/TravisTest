@@ -4,10 +4,8 @@ platform :ios do
   desc "pgy archive"
   lane : pgy do
     gym(clean:true, #打包前clean项目
-    	# output_directory: "./firim",#ipa的存放目录
 	scheme: "TravisTest",
 	project: "TravisTest.xcodeproj",
-        # workspace: "RxswiftStudy.xcworkspace",
 	export_method: "ad-hoc",
       	export_options: {
           compileBitcode: false
