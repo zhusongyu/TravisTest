@@ -1,2 +1,2 @@
 # TravisTest
-![](https://travis-ci.org/zhusongyu/TravisTest.svg?branch=master)
+【！【Build status】（https://travis-ci.org/zhusongyu/TravisTest.svg?branch=master）】
