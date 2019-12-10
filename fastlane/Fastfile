@@ -12,8 +12,8 @@ platform :ios do
           compileBitcode: false,
         }  
      )
-    pgyer(api_key: "92c0423f53102ddf1f06a92bd0f2fb86", user_key: "4ae6cbc1ef990ff47453be759d93d306",password: "123456", install_type: "2")
+    # pgyer(api_key: "92c0423f53102ddf1f06a92bd0f2fb86", user_key: "4ae6cbc1ef990ff47453be759d93d306",password: "123456", install_type: "2")
 
-    # firim(firim_api_token:"392bc7f0f92622ec086cb47be760b054")
+    firim(firim_api_token:"392bc7f0f92622ec086cb47be760b054")
   end
 end
