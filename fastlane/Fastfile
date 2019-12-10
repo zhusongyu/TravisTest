@@ -4,20 +4,12 @@ platform :ios do
   desc "pgy archive"
   lane :pgy do
     xcode_select("/Applications/Xcode.app")
-    update_app_identifier(
-      xcodeproj: "TravisTest.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "TravisTest/Info.plist", # Path to info plist file, relative to xcodeproj
-      app_identifier: "com.zsy.travistest" # The App Identifier
-    )
     gym(xcargs: "-UseNewBuildSystem=YES",
         scheme: "TravisTest",
 	project: "TravisTest.xcodeproj",
 	export_method: "ad-hoc",
       	export_options: {
           compileBitcode: false,
-          provisioningProfiles: {
-            "com.zsy.travistest" => "~/Library/MobileDevice/Provisioning\ Profiles/tra-adhoc.mobileprovision"
-          }
         }  
      )
     pgyer(api_key: "92c0423f53102ddf1f06a92bd0f2fb86", user_key: "4ae6cbc1ef990ff47453be759d93d306",password: "123456", install_type: "2")
